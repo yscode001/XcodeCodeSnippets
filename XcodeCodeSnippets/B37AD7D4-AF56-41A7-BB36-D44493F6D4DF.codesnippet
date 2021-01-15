@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xrxsinglebindtableview</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>        // 初始化数据
+        let items = Observable.just([
+            "文本输入框的用法",
+            "开关按钮的用法",
+            "进度条的用法",
+            "文本标签的用法"
+        ])
+        
+        // 设置单元格数据(其实就是对cellForRowAt的封装)
+        items.bind(to: tbv.rx.items){ (tableView, row, element) in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cellID")!
+            cell.textLabel?.text = "\(row)：\(element)"
+            return cell
+        }.disposed(by: disposeBag)</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B37AD7D4-AF56-41A7-BB36-D44493F6D4DF</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Rx绑定单Section的TableView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
