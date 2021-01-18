@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xrxsinglebindcollectionview</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>        // 初始化数据
+        let items = Observable.just([
+            "Swift",
+            "PHP"
+        ])
+        
+        // 设置单元格数据（其实就是对 cellForItemAt 的封装）
+        items.bind(to: collectionView.rx.items) { (collectionView, row, element) in
+            let indexPath = IndexPath(row: row, section: 0)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as! MyCollectionViewCell
+            cell.label.text = "\(row)：\(element)"
+            return cell
+        }.disposed(by: disposeBag)</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>50A90546-35B3-4310-9922-FB1D3B780806</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Rx绑定单Section的CollectionView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

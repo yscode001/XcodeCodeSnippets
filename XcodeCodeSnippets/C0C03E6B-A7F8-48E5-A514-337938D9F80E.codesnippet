@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xrxmultibindtableview</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>        // 初始化数据
+        let items = Observable.just([
+            SectionModel(model: "基本控件", items: [
+                "UILable的用法",
+                "UIText的用法"
+            ]),
+            SectionModel(model: "高级控件", items: [
+                "UITableView的用法",
+                "UICollectionViews的用法"
+            ])
+        ])
+        
+        // 创建数据源
+        let dataSource = RxTableViewSectionedReloadDataSource&lt;SectionModel&lt;String, String&gt;&gt;(configureCell: { (dataSource, tv, indexPath, element) in
+            let cell = tv.dequeueReusableCell(withIdentifier: "Cell")!
+            cell.textLabel?.text = "\(indexPath.row)：\(element)"
+            return cell
+        })
+        
+        // 设置分区头标题
+        dataSource.titleForHeaderInSection = { ds, index in
+            return ds.sectionModels[index].model
+        }
+        
+        // 设置分区尾标题
+        // dataSource.titleForFooterInSection = { ds, index in
+        //    return "footer"
+        // }
+        
+        // 绑定单元格数据
+        items.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C0C03E6B-A7F8-48E5-A514-337938D9F80E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Rx榜单多Section的TableView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
