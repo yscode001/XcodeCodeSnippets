@@ -3,23 +3,35 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>xweakselfclosure</string>
+	<string>xswiftui</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[weak self] (_) -&gt; Void in{
-  
+	<string>/// XX视图
+struct XXV: View {
+    
+    var body: some View{
+        Text("控件")
+    }
+}
+
+// MARK: - 预览
+struct XXV_Previews: PreviewProvider {
+    
+    static var previews: some View{
+        XXV().previewDevice(PreviewDevices.current)
+    }
 }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2FB30E51-6BEA-4E6D-8552-162025A38862</string>
+	<string>8597B7A3-6D8E-463E-86D7-DA8ABB72B297</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
 	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>闭包参数定义</string>
+	<string>声明SwiftUI控件</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
